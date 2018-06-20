@@ -65,7 +65,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NotifyDispatchFinished.cs" />
+    <Compile Include="Modules\EmailCampaign\Core\Pipelines\DispatchNewsletter\NotifyDispatchFinished.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +75,7 @@
     <None Include="packages.config" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\EmailCampaign\Core\Pipelines\DispatchNewsletter\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
