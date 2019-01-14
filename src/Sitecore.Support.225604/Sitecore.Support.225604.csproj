@@ -42,10 +42,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.EmailCampaign.Model">
-      <HintPath>..\packages\EXM.Sitecore.EmailCampaign.Model.3.4.1\lib\Sitecore.EmailCampaign.Model.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Sitecore.ExM.Framework">
       <HintPath>..\packages\EXM.Sitecore.ExM.Framework.3.4.1\lib\Sitecore.ExM.Framework.dll</HintPath>
       <Private>False</Private>

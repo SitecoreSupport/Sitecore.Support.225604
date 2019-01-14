@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using Sitecore.Diagnostics;
-using Sitecore.EmailCampaign.Model;
-using Sitecore.EmailCampaign.Model.Dispatch;
 using Sitecore.ExM.Framework.Diagnostics;
 using Sitecore.Modules.EmailCampaign.Core;
+using Sitecore.Modules.EmailCampaign.Core.Dispatch;
 using Sitecore.Modules.EmailCampaign.Core.Pipelines.DispatchNewsletter;
 using Sitecore.Modules.EmailCampaign.Factories;
 
@@ -29,14 +28,23 @@ namespace Sitecore.Support.Modules.EmailCampaign.Core.Pipelines.DispatchNewslett
 
     public void Process(DispatchNewsletterArgs args)
     {
-      if ((!args.IsTestSend && args.AllowNotifications) && (args.Message.EnableNotifications && (args.DispatchInterruptRequest != DispatchInterruptSignal.Pause)))
+      if ((!args.IsTestSend && args.AllowNotifications) && args.Message.EnableNotifications)
       {
         try
         {
           string str;
+      
           if (args.SendingAborted || !args.RequireFinalMovement)
           {
             str = EcmTexts.Localize("Aborted", new object[0]);
+          }
+          else if (args.DispatchInterruptRequest == DispatchInterruptSignal.Abort)
+          {
+            str = EcmTexts.Localize("Aborted", new object[0]);
+          }
+          else if (args.DispatchInterruptRequest == DispatchInterruptSignal.Pause)
+          {
+            str = EcmTexts.Localize("Paused", new object[0]);
           }
           else
           {
